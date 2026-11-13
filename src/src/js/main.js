@@ -46,6 +46,14 @@ back:'Volver al inicio ↑',
 foot:['Archivo histórico Galería Biosca','Proyecto conmemorativo y documental'],
 museumKicker:'ARCHIVO Y LEGADO',
 museumLink:'Archivo Biosca · Museo Reina Sofía',
+
+locEyebrow:'02 / EL ESPACIO',
+locTitle:'La sede de<br><em>la Galería Biosca.</em>',
+locLead:'Calle Génova, 11 · Madrid',
+locText:'En este local estuvo situada la Galería Biosca. Esta fotografía conserva la imagen de su fachada y nos acerca al espacio físico donde se desarrolló parte de su historia.',
+locNote:'Fotografía de la década de 1980.',
+locAlt:'Fotografía histórica de la fachada de la Galería Biosca en la calle Génova, 11, Madrid',
+
 alt:'Portada del libro Aurelio Biosca y el Arte Español',
 vAlt:'Entrevista a Aurelio Biosca en TVE'
 },
@@ -82,6 +90,14 @@ back:'Back to top ↑',
 foot:['Historical archive of the Biosca Gallery','Commemorative and documentary project'],
 museumKicker:'ARCHIVE AND LEGACY',
 museumLink:'Biosca Archive · Reina Sofía Museum',
+
+locEyebrow:'02 / THE LOCATION',
+locTitle:'The home of<br><em>Galería Biosca.</em>',
+locLead:'11 Génova Street · Madrid',
+locText:'The Biosca Gallery was located at these premises. This photograph preserves the image of its façade and brings us closer to the physical place where part of its history unfolded.',
+locNote:'Photograph from the 1980s.',
+locAlt:'Historical photograph of the façade of the Biosca Gallery at 11 Génova Street, Madrid',
+
 alt:'Cover of the book Aurelio Biosca and Spanish Art',
 vAlt:'Interview with Aurelio Biosca on TVE'
 }
@@ -132,6 +148,23 @@ function setLang(lang){
 
   setText('.intro-band p',t.quote);
   setText('.intro-band span',t.band);
+
+  // Traducción de la sección de la sede de la Galería Biosca
+  setText('.location-copy .eyebrow',t.locEyebrow);
+  setHTML('.location-copy h2',t.locTitle);
+  setText('.location-copy .lead',t.locLead);
+
+  const locationText=document.querySelector('.location-copy .lead');
+  if(locationText&&locationText.nextElementSibling){
+    locationText.nextElementSibling.textContent=t.locText;
+  }
+
+  setText('.location-copy .note',t.locNote);
+  setText('.location-caption',t.locLead);
+
+  const locationImage=document.querySelector('.location-photo img');
+  if(locationImage)locationImage.alt=t.locAlt;
+
   setHTML('.history-section h2',t.hTitle);
 
   document.querySelectorAll('.history-section .section-body p').forEach((el,i)=>{
