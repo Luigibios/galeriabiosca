@@ -54,6 +54,17 @@ locText:'En este local estuvo situada la Galería Biosca. Esta fotografía conse
 locNote:'Fotografía de la década de 1980.',
 locAlt:'Fotografía histórica de la fachada de la Galería Biosca en la calle Génova, 11, Madrid',
 
+identityEyebrow:'03 / LA IDENTIDAD',
+identityTitle:'El nombre de<br><em>una galería.</em>',
+identityLead:'Biosca · Galería de Arte',
+identityText:'Esta placa conserva el nombre «Biosca» y la denominación «Galería de Arte», tal como aparecen en la imagen. Es un testimonio material de la identidad visual con la que la galería se presentaba al público.',
+identityNote:'Una imagen de la memoria material de la Galería Biosca.',
+identityAlt:'Placa con el nombre Biosca y la inscripción Galería de Arte',
+
+aEyebrow:'04 / LA PERSONA',
+vEyebrow:'05 / MEMORIA AUDIOVISUAL',
+arEyebrow:'06 / EL ARCHIVO',
+
 alt:'Portada del libro Aurelio Biosca y el Arte Español',
 vAlt:'Entrevista a Aurelio Biosca en TVE'
 },
@@ -98,6 +109,17 @@ locText:'The Biosca Gallery was located at these premises. This photograph prese
 locNote:'Photograph from the 1980s.',
 locAlt:'Historical photograph of the façade of the Biosca Gallery at 11 Génova Street, Madrid',
 
+identityEyebrow:'03 / THE IDENTITY',
+identityTitle:'The name of<br><em>a gallery.</em>',
+identityLead:'Biosca · Art Gallery',
+identityText:'This plaque preserves the name “Biosca” and the designation “Art Gallery”, as shown in the image. It is a material record of the visual identity through which the gallery presented itself to the public.',
+identityNote:'An image from the material memory of the Biosca Gallery.',
+identityAlt:'Plaque bearing the name Biosca and the inscription Art Gallery',
+
+aEyebrow:'04 / THE PERSON',
+vEyebrow:'05 / AUDIOVISUAL MEMORY',
+arEyebrow:'06 / THE ARCHIVE',
+
 alt:'Cover of the book Aurelio Biosca and Spanish Art',
 vAlt:'Interview with Aurelio Biosca on TVE'
 }
@@ -107,7 +129,6 @@ const langBtn=document.querySelector('.language-toggle');
 
 function setLang(lang){
   const t=T[lang]||T.es;
-
   document.documentElement.lang=lang;
 
   document.title=lang==='en'
@@ -149,7 +170,6 @@ function setLang(lang){
   setText('.intro-band p',t.quote);
   setText('.intro-band span',t.band);
 
-  // Traducción de la sección de la sede de la Galería Biosca
   setText('.location-copy .eyebrow',t.locEyebrow);
   setHTML('.location-copy h2',t.locTitle);
   setText('.location-copy .lead',t.locLead);
@@ -162,17 +182,34 @@ function setLang(lang){
   setText('.location-copy .note',t.locNote);
   setText('.location-caption',t.locLead);
 
-  const locationImage=document.querySelector('.location-photo img');
+  const locationImage=document.querySelector('#sede .location-photo img');
   if(locationImage)locationImage.alt=t.locAlt;
 
-  setHTML('.history-section h2',t.hTitle);
+  setText('.identity-copy .eyebrow',t.identityEyebrow);
+  setHTML('.identity-copy h2',t.identityTitle);
+  setText('.identity-copy .lead',t.identityLead);
 
+  const identityText=document.querySelector('.identity-copy .lead');
+  if(identityText&&identityText.nextElementSibling){
+    identityText.nextElementSibling.textContent=t.identityText;
+  }
+
+  setText('.identity-copy .note',t.identityNote);
+  setText('.identity-caption',t.identityLead);
+
+  const identityImage=document.querySelector('.identity-photo img');
+  if(identityImage)identityImage.alt=t.identityAlt;
+
+  setText('.aurelio-copy .eyebrow',t.aEyebrow);
+  setText('.video-section .eyebrow',t.vEyebrow);
+  setText('.archive-top .eyebrow',t.arEyebrow);
+
+  setHTML('.history-section h2',t.hTitle);
   document.querySelectorAll('.history-section .section-body p').forEach((el,i)=>{
     if(t.h[i])el.textContent=t.h[i];
   });
 
   setText('.aurelio-copy .lead',t.aLead);
-
   const aurelioText=document.querySelector('.aurelio-copy .lead');
   if(aurelioText&&aurelioText.nextElementSibling){
     aurelioText.nextElementSibling.textContent=t.aText;
