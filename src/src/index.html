@@ -2,20 +2,62 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <link rel="icon" href="assets/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Un homenaje a Aurelio Biosca y a la historia de la Galería Biosca de Madrid. Archivo histórico, memoria familiar y entrevista de TVE.">
   <meta name="theme-color" content="#f3efe7">
+
   <title>Galería Biosca — Memoria de una galería de arte</title>
+
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Retrato de Aurelio Biosca */
+    .aurelio-image {
+      position: relative;
+      overflow: hidden;
+      background: transparent;
+      min-height: 0;
+      padding: 0;
+    }
+
+    .aurelio-portrait {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 680px;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .aurelio-image .image-caption {
+      position: relative;
+      padding: 14px 18px;
+      background: #25231f;
+      color: #f3efe7;
+      font-family: "DM Sans", sans-serif;
+      font-size: 11px;
+      letter-spacing: .12em;
+      line-height: 1.6;
+    }
+
+    .aurelio-image .image-caption span {
+      font-size: 9px;
+      letter-spacing: .18em;
+      opacity: .75;
+    }
+  </style>
 </head>
+
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
@@ -38,6 +80,7 @@
   </header>
 
   <main id="contenido">
+
     <section class="hero" id="inicio">
       <div class="hero-copy">
         <p class="eyebrow">Madrid · Desde 1940</p>
@@ -51,7 +94,7 @@
         <figcaption>Una publicación dedicada a Aurelio Biosca y al arte español.</figcaption>
       </figure>
 
-      <div class="hero-index" aria-hidden="true">BIOSCA&nbsp; / &nbsp;MADRID</div>
+      <div class="hero-index" aria-hidden="true">BIOSCA / MADRID</div>
     </section>
 
     <section class="intro-band">
@@ -103,17 +146,35 @@
     </section>
 
     <section class="aurelio-section" id="aurelio">
+
       <div class="aurelio-image">
-        <div class="image-caption">AURELIO BIOSCA<br><span>Y EL ARTE ESPAÑOL</span></div>
+        <img
+          class="aurelio-portrait"
+          src="assets/retrato.jpg"
+          alt="Retrato pictórico de Aurelio Biosca Torres"
+          loading="lazy">
+
+        <div class="image-caption">
+          AURELIO BIOSCA TORRES<br>
+          <span>RETRATO FAMILIAR</span>
+        </div>
       </div>
 
       <div class="aurelio-copy">
         <p class="eyebrow">04 / La persona</p>
         <h2>Aurelio<br><em>Biosca</em></h2>
-        <p class="lead">Galerista y figura vinculada a una etapa decisiva de la vida artística madrileña.</p>
-        <p>La historia de la galería no puede separarse de la de Aurelio Biosca. Este apartado recogerá su trayectoria, su visión del arte y los testimonios de quienes le conocieron y trabajaron con él.</p>
-        <p class="note">La biografía se ampliará a medida que incorporemos referencias documentales y materiales familiares.</p>
+
+        <p class="lead">El hombre detrás de la Galería Biosca.</p>
+
+        <p>Aurelio Biosca Torres fue una figura fundamental en la historia de la Galería Biosca y en la evolución de la vida artística madrileña del siglo XX.</p>
+
+        <p>Este retrato familiar nos acerca a su dimensión personal y nos permite poner rostro a la persona que estuvo detrás de una de las galerías de arte más significativas de su época.</p>
+
+        <p>Su trayectoria estuvo vinculada al descubrimiento y la difusión de artistas, a la defensa de nuevas corrientes artísticas y al desarrollo del arte moderno en España.</p>
+
+        <p class="note">Un recuerdo familiar que forma parte de la memoria de la Galería Biosca.</p>
       </div>
+
     </section>
 
     <section class="section video-section" id="entrevista">
@@ -130,8 +191,10 @@
             loading="lazy"
             referrerpolicy="strict-origin-when-cross-origin"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
+            allowfullscreen>
+          </iframe>
         </div>
+
         <p class="video-caption">Entrevista emitida por TVE. El vídeo se reproduce desde YouTube y se inicia en el minuto 2:59.</p>
       </div>
     </section>
@@ -177,6 +240,7 @@
       <h2>El arte permanece.<br><em>La memoria también.</em></h2>
       <a href="#inicio" class="back-top">Volver al inicio ↑</a>
     </section>
+
   </main>
 
   <footer class="site-footer">
