@@ -11,260 +11,75 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --paper:#f3efe7;
-  --ink:#25231f;
-  --muted:#777168;
-  --line:#d8d1c5;
-  --accent:#9b7651;
+:root{--paper:#f3efe7;--ink:#25231f;--muted:#777168;--line:#d8d1c5;--accent:#9b7651}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.65}
+a{color:inherit}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:25px 6vw;border-bottom:1px solid var(--line)}
+.brand{text-decoration:none;font-size:14px;font-weight:700;letter-spacing:.13em}
+.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.2em}
+.top-actions{display:flex;gap:20px;align-items:center}
+.top-actions a,.lang{font:600 12px "DM Sans",sans-serif;text-decoration:none}
+.lang{border:1px solid var(--line);background:transparent;border-radius:30px;padding:8px 13px;cursor:pointer}
+main{max-width:1180px;margin:auto;padding:70px 6vw 90px}
+.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 18px}
+h1,h2,h3{font-family:"Playfair Display",serif;font-weight:500}
+h1{font-size:clamp(42px,7vw,76px);line-height:1.02;margin:0 0 24px}
+h1 em{font-weight:400}
+.intro{max-width:700px;color:#625d55;font-size:17px;margin:0 0 35px}
+.source-note{font-size:12px;color:var(--muted);border-left:2px solid var(--accent);padding:5px 0 5px 15px;max-width:850px;margin:0 0 60px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;border-bottom:1px solid var(--line);padding-bottom:17px;margin:60px 0 28px}
+.section-head h2{font-size:34px;margin:0}
+.section-head span{font-size:10px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.book-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px}
+.book{min-width:0}
+.cover{height:300px;background:#e5ded2;display:flex;align-items:center;justify-content:center;overflow:hidden;margin:0 0 17px;border:1px solid #ded6ca}
+.cover img{width:100%;height:100%;object-fit:contain;display:block}
+.placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;background:#171614;color:#d8b77c}
+.placeholder small{font-size:9px;letter-spacing:.22em;margin-bottom:25px}
+.placeholder strong{font:500 24px/1.2 "Playfair Display",serif;letter-spacing:.08em;text-transform:uppercase}
+.bars{display:flex;width:72%;height:10px;margin:25px 0 20px}
+.bars i{flex:1}
+.bars i:nth-child(1){background:#f1e96c}
+.bars i:nth-child(2){background:#ef756d}
+.bars i:nth-child(3){background:#e84b68}
+.bars i:nth-child(4){background:#62c9a2}
+.bars i:nth-child(5){background:#8274bd}
+.bars i:nth-child(6){background:#c45a9e}
+.book h3{font-size:22px;line-height:1.2;margin:0 0 8px}
+.meta,.book p{font-size:13px;color:#655f56;margin:0 0 10px}
+.book a,.entry a,.sources a{font-size:12px;color:#795b3e;text-underline-offset:3px}
+.list{display:grid;grid-template-columns:1fr 1fr;gap:0 45px}
+.entry{padding:18px 0;border-bottom:1px solid var(--line)}
+.entry h3{font-size:19px;margin:0 0 5px}
+.entry p{font-size:13px;color:#625d55;margin:0}
+.catalogue-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}
+.catalogue .cover{height:220px}
+.catalogue h3{font-size:17px;margin:0 0 5px}
+.catalogue p{font-size:12px;color:var(--muted);margin:0}
+.method{margin-top:65px;padding:25px 28px;border:1px solid var(--line);font-size:13px;color:#625d55}
+.method strong{color:var(--ink)}
+footer{border-top:1px solid var(--line);padding:24px 6vw;display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:11px}
+@media(max-width:800px){
+.book-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.catalogue-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
-* {box-sizing:border-box}
-html {scroll-behavior:smooth}
-body {
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:"DM Sans",sans-serif;
-  line-height:1.65;
-}
-a {color:inherit}
-.topbar {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:24px;
-  padding:25px 6vw;
-  border-bottom:1px solid var(--line);
-}
-.brand {
-  text-decoration:none;
-  font-size:14px;
-  font-weight:700;
-  letter-spacing:.13em;
-}
-.brand small {
-  display:block;
-  color:var(--muted);
-  font-size:9px;
-  letter-spacing:.2em;
-}
-.top-actions {
-  display:flex;
-  gap:20px;
-  align-items:center;
-}
-.top-actions a,.lang {
-  font:600 12px "DM Sans",sans-serif;
-  text-decoration:none;
-}
-.lang {
-  border:1px solid var(--line);
-  background:transparent;
-  border-radius:30px;
-  padding:8px 13px;
-  cursor:pointer;
-}
-main {
-  max-width:1180px;
-  margin:auto;
-  padding:70px 6vw 90px;
-}
-.eyebrow {
-  font-size:10px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:var(--accent);
-  font-weight:700;
-  margin:0 0 18px;
-}
-h1,h2,h3 {
-  font-family:"Playfair Display",serif;
-  font-weight:500;
-}
-h1 {
-  font-size:clamp(42px,7vw,76px);
-  line-height:1.02;
-  margin:0 0 24px;
-}
-h1 em {font-weight:400}
-.intro {
-  max-width:700px;
-  color:#625d55;
-  font-size:17px;
-  margin:0 0 35px;
-}
-.source-note {
-  font-size:12px;
-  color:var(--muted);
-  border-left:2px solid var(--accent);
-  padding:5px 0 5px 15px;
-  max-width:850px;
-  margin:0 0 60px;
-}
-.section-head {
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:20px;
-  border-bottom:1px solid var(--line);
-  padding-bottom:17px;
-  margin:60px 0 28px;
-}
-.section-head h2 {
-  font-size:34px;
-  margin:0;
-}
-.section-head span {
-  font-size:10px;
-  letter-spacing:.12em;
-  color:var(--muted);
-  text-transform:uppercase;
-}
-.book-grid {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:30px;
-}
-.book {min-width:0}
-.cover {
-  height:300px;
-  background:#e5ded2;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  margin:0 0 17px;
-  border:1px solid #ded6ca;
-}
-.cover img {
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  display:block;
-}
-.placeholder {
-  width:100%;
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:22px;
-  background:#171614;
-  color:#d8b77c;
-}
-.placeholder small {
-  font-size:9px;
-  letter-spacing:.22em;
-  margin-bottom:25px;
-}
-.placeholder strong {
-  font:500 24px/1.2 "Playfair Display",serif;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-.bars {
-  display:flex;
-  width:72%;
-  height:10px;
-  margin:25px 0 20px;
-}
-.bars i {flex:1}
-.bars i:nth-child(1) {background:#f1e96c}
-.bars i:nth-child(2) {background:#ef756d}
-.bars i:nth-child(3) {background:#e84b68}
-.bars i:nth-child(4) {background:#62c9a2}
-.bars i:nth-child(5) {background:#8274bd}
-.bars i:nth-child(6) {background:#c45a9e}
-.book h3 {
-  font-size:22px;
-  line-height:1.2;
-  margin:0 0 8px;
-}
-.meta,.book p {
-  font-size:13px;
-  color:#655f56;
-  margin:0 0 10px;
-}
-.book a,.entry a,.sources a {
-  font-size:12px;
-  color:#795b3e;
-  text-underline-offset:3px;
-}
-.list {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:0 45px;
-}
-.entry {
-  padding:18px 0;
-  border-bottom:1px solid var(--line);
-}
-.entry h3 {
-  font-size:19px;
-  margin:0 0 5px;
-}
-.entry p {
-  font-size:13px;
-  color:#625d55;
-  margin:0;
-}
-.catalogue-grid {
-  display:grid;
-  grid-template-columns:repeat(5,minmax(0,1fr));
-  gap:18px;
-}
-.catalogue .cover {height:220px}
-.catalogue h3 {
-  font-size:17px;
-  margin:0 0 5px;
-}
-.catalogue p {
-  font-size:12px;
-  color:var(--muted);
-  margin:0;
-}
-.method {
-  margin-top:65px;
-  padding:25px 28px;
-  border:1px solid var(--line);
-  font-size:13px;
-  color:#625d55;
-}
-.method strong {color:var(--ink)}
-footer {
-  border-top:1px solid var(--line);
-  padding:24px 6vw;
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  color:var(--muted);
-  font-size:11px;
-}
-@media(max-width:800px) {
-  .book-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
-  .catalogue-grid {grid-template-columns:repeat(3,minmax(0,1fr))}
-}
-@media(max-width:560px) {
-  .topbar {align-items:flex-start}
-  .top-actions a {display:none}
-  main {padding-top:45px}
-  .book-grid,.list {grid-template-columns:1fr}
-  .catalogue-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
-  .cover {height:280px}
-  .catalogue .cover {height:200px}
-  .section-head {
-    align-items:start;
-    flex-direction:column;
-  }
-  footer {flex-direction:column}
+@media(max-width:560px){
+.topbar{align-items:flex-start}
+.top-actions a{display:none}
+main{padding-top:45px}
+.book-grid,.list{grid-template-columns:1fr}
+.catalogue-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.cover{height:280px}
+.catalogue .cover{height:200px}
+.section-head{align-items:start;flex-direction:column}
+footer{flex-direction:column}
 }
 </style>
 </head>
 
 <body>
-
 <header class="topbar">
   <a class="brand" href="index.html">
     <small>ARCHIVO HISTÓRICO</small>
@@ -277,18 +92,13 @@ footer {
 </header>
 
 <main>
-
 <p class="eyebrow" id="eyebrow">Archivo bibliográfico · Madrid</p>
 
 <h1 id="title">Bibliografía de<br><em>la Galería Biosca.</em></h1>
 
-<p class="intro" id="intro">
-Libros, estudios y catálogos que ayudan a documentar la trayectoria de la Galería Biosca, la figura de Aurelio Biosca y el contexto artístico en el que desarrolló su actividad.
-</p>
+<p class="intro" id="intro">Libros, estudios y catálogos que ayudan a documentar la trayectoria de la Galería Biosca, la figura de Aurelio Biosca y el contexto artístico en el que desarrolló su actividad.</p>
 
-<p class="source-note" id="note">
-Selección inicial basada en la bibliografía del Museo Reina Sofía y en catálogos de exposición documentados por Galería Marmurán. Las referencias se irán ampliando y verificando.
-</p>
+<p class="source-note" id="note">Selección inicial basada en la bibliografía del Museo Reina Sofía y en catálogos de exposición documentados por Galería Marmurán. Las referencias se irán ampliando y verificando.</p>
 
 <div class="section-head">
   <h2 id="booksTitle">Libros y monografías</h2>
@@ -309,7 +119,7 @@ Selección inicial basada en la bibliografía del Museo Reina Sofía y en catál
   <h3>Cincuenta años de arte: Galería Biosca, 1940–1990</h3>
   <p class="meta">Javier Tusell y Álvaro Martínez-Novillo · Madrid: Turner, 1991</p>
   <p>Monografía conmemorativa sobre los cincuenta años de actividad de la galería. 198–204 páginas según los registros bibliográficos consultados.</p>
-  <a href="https://www.iberlibro.com/9788475063362/Cincuenta-a%C3%B1os-arte-TUSELL-JAVIER-8475063365/plp" target="_blank" rel="noopener">Consultar ficha bibliográfica ↗</a>
+  <a href="https://www.iberlibro.com/9788475063362/Cincuenta-a%C3%B1os-arte-TUSELL-JAVIER-8475063365/plp" target="_blank" rel="noopener noreferrer">Consultar ficha bibliográfica ↗</a>
 </article>
 
 <article class="book">
@@ -323,7 +133,7 @@ Selección inicial basada en la bibliografía del Museo Reina Sofía y en catál
   <h3>Aurelio Biosca y el arte español</h3>
   <p class="meta">Madrid: Ministerio de Cultura, Centro de Publicaciones, 1998</p>
   <p>Publicación dedicada a Aurelio Biosca y su relación con el arte español.</p>
-  <a href="https://www.museoreinasofia.es/sites/default/files/biblioteca/archivo-de-archivos/bibliografia_biosca.pdf" target="_blank" rel="noopener">Ver bibliografía del Museo Reina Sofía ↗</a>
+  <a href="https://recursos.museoreinasofia.es/Recursos/bibliografia_biosca.pdf" target="_blank" rel="noopener noreferrer">Ver bibliografía del Museo Reina Sofía ↗</a>
 </article>
 
 <article class="book">
@@ -337,7 +147,7 @@ Selección inicial basada en la bibliografía del Museo Reina Sofía y en catál
   <h3>Un decenio de arte moderno, 1940–50</h3>
   <p class="meta">Madrid: Galería Biosca, 1951</p>
   <p>Publicación vinculada a la exposición antológica que revisó la actividad artística de la década anterior.</p>
-  <a href="https://www.museoreinasofia.es/sites/default/files/biblioteca/archivo-de-archivos/bibliografia_biosca.pdf" target="_blank" rel="noopener">Ver referencia en el Museo Reina Sofía ↗</a>
+  <a href="https://recursos.museoreinasofia.es/Recursos/bibliografia_biosca.pdf" target="_blank" rel="noopener noreferrer">Ver referencia en el Museo Reina Sofía ↗</a>
 </article>
 
 </section>
@@ -362,7 +172,7 @@ Selección inicial basada en la bibliografía del Museo Reina Sofía y en catál
 <article class="entry">
   <h3>El aprendizaje de la galerista Juana Mordó. La Galería Biosca 1958–1964</h3>
   <p>Nuria Pareja Carneros · Tesis doctoral · Universitat Politècnica de València, 2017.</p>
-  <a href="https://riunet.upv.es/handle/10251/90545" target="_blank" rel="noopener">Consultar tesis ↗</a>
+  <a href="https://riunet.upv.es/handle/10251/90545" target="_blank" rel="noopener noreferrer">Consultar tesis ↗</a>
 </article>
 
 <article class="entry">
@@ -434,11 +244,14 @@ Selección inicial basada en la bibliografía del Museo Reina Sofía y en catál
 <div class="method" id="method">
   <strong>Nota sobre las imágenes y las referencias.</strong>
   Las imágenes de los catálogos se muestran desde la página de Galería Marmurán, que las publica en su sección de catálogos y libros. Se atribuye la fuente; antes de mantenerlas permanentemente en este archivo conviene solicitar autorización para su reproducción. Las fichas bibliográficas principales se basan en la bibliografía selecta del Museo Reina Sofía. La presencia de una referencia no implica que el ejemplar forme parte de una colección privada concreta.
+
   <p class="sources">
     Fuentes:
-    <a href="https://www.museoreinasofia.es/sites/default/files/biblioteca/archivo-de-archivos/bibliografia_biosca.pdf" target="_blank" rel="noopener">Museo Reina Sofía · Bibliografía selecta</a> ·
-    <a href="https://galeriamarmuran.com/catalogos.asp" target="_blank" rel="noopener">Galería Marmurán · Catálogos</a> ·
-    <a href="https://www.museoreinasofia.es/biblioteca/colecciones/archivos/archivo-biosca/" target="_blank" rel="noopener">Archivo Biosca · Museo Reina Sofía</a>
+    <a href="https://recursos.museoreinasofia.es/Recursos/bibliografia_biosca.pdf" target="_blank" rel="noopener noreferrer">Museo Reina Sofía · Bibliografía selecta</a>
+    ·
+    <a href="https://galeriamarmuran.com/catalogos.asp" target="_blank" rel="noopener noreferrer">Galería Marmurán · Catálogos</a>
+    ·
+    <a href="https://www.museoreinasofia.es/biblioteca/colecciones/archivos/archivo-biosca/" target="_blank" rel="noopener noreferrer">Archivo Biosca · Museo Reina Sofía</a>
   </p>
 </div>
 
@@ -452,32 +265,32 @@ Selección inicial basada en la bibliografía del Museo Reina Sofía y en catál
 <script>
 const tr = {
   es: {
-    back:"Volver a la web ↗",
-    eyebrow:"Archivo bibliográfico · Madrid",
-    title:"Bibliografía de<br><em>la Galería Biosca.</em>",
-    intro:"Libros, estudios y catálogos que ayudan a documentar la trayectoria de la Galería Biosca, la figura de Aurelio Biosca y el contexto artístico en el que desarrolló su actividad.",
-    note:"Selección inicial basada en la bibliografía del Museo Reina Sofía y en catálogos de exposición documentados por Galería Marmurán. Las referencias se irán ampliando y verificando.",
-    books:"Libros y monografías",
-    booksCount:"Selección inicial · 3 referencias",
-    studies:"Estudios e investigación",
-    studiesCount:"Tesis y publicaciones",
-    cats:"Catálogos de exposiciones",
-    catCount:"Ejemplos documentados · 1981–1986",
-    footer:"Bibliografía en construcción · Fuentes documentales citadas"
+    back: "Volver a la web ↗",
+    eyebrow: "Archivo bibliográfico · Madrid",
+    title: "Bibliografía de<br><em>la Galería Biosca.</em>",
+    intro: "Libros, estudios y catálogos que ayudan a documentar la trayectoria de la Galería Biosca, la figura de Aurelio Biosca y el contexto artístico en el que desarrolló su actividad.",
+    note: "Selección inicial basada en la bibliografía del Museo Reina Sofía y en catálogos de exposición documentados por Galería Marmurán. Las referencias se irán ampliando y verificando.",
+    books: "Libros y monografías",
+    booksCount: "Selección inicial · 3 referencias",
+    studies: "Estudios e investigación",
+    studiesCount: "Tesis y publicaciones",
+    cats: "Catálogos de exposiciones",
+    catCount: "Ejemplos documentados · 1981–1986",
+    footer: "Bibliografía en construcción · Fuentes documentales citadas"
   },
   en: {
-    back:"Back to the website ↗",
-    eyebrow:"Bibliographical archive · Madrid",
-    title:"Bibliography of<br><em>Galería Biosca.</em>",
-    intro:"Books, research and exhibition catalogues documenting the history of Galería Biosca, the work of Aurelio Biosca and the artistic context in which the gallery operated.",
-    note:"Initial selection based on the bibliography published by Museo Reina Sofía and exhibition catalogues documented by Galería Marmurán. References will be expanded and verified.",
-    books:"Books and monographs",
-    booksCount:"Initial selection · 3 references",
-    studies:"Research and studies",
-    studiesCount:"Theses and publications",
-    cats:"Exhibition catalogues",
-    catCount:"Documented examples · 1981–1986",
-    footer:"Bibliography in progress · Documentary sources cited"
+    back: "Back to the website ↗",
+    eyebrow: "Bibliographical archive · Madrid",
+    title: "Bibliography of<br><em>Galería Biosca.</em>",
+    intro: "Books, research and exhibition catalogues documenting the history of Galería Biosca, the work of Aurelio Biosca and the artistic context in which the gallery operated.",
+    note: "Initial selection based on the bibliography published by Museo Reina Sofía and exhibition catalogues documented by Galería Marmurán. References will be expanded and verified.",
+    books: "Books and monographs",
+    booksCount: "Initial selection · 3 references",
+    studies: "Research and studies",
+    studiesCount: "Theses and publications",
+    cats: "Exhibition catalogues",
+    catCount: "Documented examples · 1981–1986",
+    footer: "Bibliography in progress · Documentary sources cited"
   }
 };
 
@@ -485,6 +298,7 @@ const b = document.getElementById("lang");
 
 function setLang(l) {
   const t = tr[l];
+
   document.documentElement.lang = l;
   document.getElementById("back").textContent = t.back;
   document.getElementById("eyebrow").textContent = t.eyebrow;
@@ -498,17 +312,19 @@ function setLang(l) {
   document.getElementById("catTitle").textContent = t.cats;
   document.getElementById("catCount").textContent = t.catCount;
   document.getElementById("footerText").textContent = t.footer;
+
   b.textContent = l === "es" ? "EN" : "ES";
 
   try {
     localStorage.setItem("biosca-language", l);
-  } catch(e) {}
+  } catch (e) {}
 }
 
 let l = "es";
+
 try {
   l = localStorage.getItem("biosca-language") || "es";
-} catch(e) {}
+} catch (e) {}
 
 setLang(l === "en" ? "en" : "es");
 
